@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="ChatroomClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChatroomClient_jar</output-path>
+    <root id="root">
+      <element id="archive" name="ChatroomClient.jar">
+        <element id="module-output" name="Client" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../../../Hundepansion/VerzeichnisM/out/artifacts/VerzeichnisM_jar/sqlite-jdbc-3.41.2.1.jar" />
+    </root>
+  </artifact>
+</component>

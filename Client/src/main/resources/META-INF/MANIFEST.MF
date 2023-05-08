@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: Chatroom.Gui.LogIn.Frame_IpInput
+Class-Path: sqlite-jdbc-3.41.2.1.jar
+
