@@ -1,5 +1,5 @@
 # MyOwnChatRoom
-A Project i did to learn Java Sockets, IO and their connected it with my knowledge on Databases. 
+A Project i did to learn Java Sockets, IO which I connected with my knowledge on Databases. 
 
 To download the newest Version of the Client go to /client/out/artifcats/Client.jar
 You need to download both jars and store it in the same Folder otherwise it wont work.
