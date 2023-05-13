@@ -1,5 +1,6 @@
 package Chatroom.Gui.Group.Panels;
 
+import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Group.Frame_Group;
 
@@ -16,6 +17,8 @@ public class Panel_Group_All extends JPanel {
         north = new Panel_Group_North();
         Panel_Group_South south = new Panel_Group_South(groupClient, group, frame);
 
+        setBackground(Global.BACKGROUND_1);
+        setForeground(Global.FOREGROUND);
         add(north, BorderLayout.NORTH);
         add(south, BorderLayout.SOUTH);
 
