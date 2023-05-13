@@ -16,21 +16,23 @@ public class Panel_South extends JPanel {
         upcomingUpdates.setForeground(Global.FOREGROUND);
         upcomingUpdates.setBorder(BorderFactory.createEmptyBorder());
         upcomingUpdates.setLineWrap(true);
-        upcomingUpdates.setEditable(false);
-        upcomingUpdates.setFocusable(false);
-        upcomingUpdates.setPreferredSize(new Dimension(800,100));
 
         upcomingUpdates.setText("Temp database to store messages for User who are offline + loading from database\n" +
+                "Work on Create Group\n" +
                 "Message Notification\n" +
                 "10 Groups per User\n" +
                 "Beautiful GUI\n" +
                 "Visual Notification on new Message\n" +
                 "Saw message indicator\n" +
-                "Editable Profiles");
+                "Editable Profiles\n" +
+                "More themes & Colors\n" +
+                "Even more security between server and client\n" +
+                "Shift settings to menubar + add more menus");
 
-        JScrollPane pane = new JScrollPane(upcomingUpdates);
-        //pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
-        pane.setBorder(BorderFactory.createEmptyBorder());
+        JScrollPane scPane = new JScrollPane(upcomingUpdates);
+        scPane.setPreferredSize(new Dimension(800,100));
+        scPane.getVerticalScrollBar().setUI(Global.TEXTAREA_SCROLLBAR_UI);
+        scPane.setBorder(BorderFactory.createEmptyBorder());
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(BorderFactory.createEmptyBorder(0,50,50,50));
@@ -38,7 +40,7 @@ public class Panel_South extends JPanel {
         setForeground(Global.FOREGROUND);
 
         add(label);
-        add(pane);
+        add(scPane);
 
     }
 
