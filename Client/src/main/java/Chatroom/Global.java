@@ -2,6 +2,8 @@ package Chatroom;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.Socket;
 
 public class Global {
@@ -16,6 +18,8 @@ public class Global {
     public static Color BACKGROUND_2;
     public static Color FOREGROUND;
     public static Color LINE;
+    public static MouseAdapter ENTER;
+    public static MouseAdapter EXIT;
 
     public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground, Color lines){
 
@@ -28,6 +32,21 @@ public class Global {
         FOREGROUND = foreground;
         LINE = lines;
         System.out.println("Global constants initialized");
+
+        ENTER = new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                JButton b = (JButton) e.getComponent();
+                b.setBackground(background2);
+            }
+        };
+        EXIT = new MouseAdapter() {
+            @Override
+            public void mouseExited(MouseEvent e) {
+                JButton b = (JButton) e.getComponent();
+                b.setBackground(background);
+            }
+        };
 
     }
 

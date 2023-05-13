@@ -1,5 +1,6 @@
 package Chatroom.Gui.Dashboard.Panels;
 
+import Chatroom.Global;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
 
 import javax.swing.*;
@@ -16,6 +17,8 @@ public class Panel_All extends JPanel {
         setPreferredSize(new Dimension(1000,600));
         setLayout(new BorderLayout());
         setName("Panel_All");
+        setBackground(Global.BACKGROUND_1);
+        setForeground(Global.FOREGROUND);
         add(panelEast, BorderLayout.EAST);
         add(panelWest, BorderLayout.WEST);
         add(panelSouth, BorderLayout.SOUTH);

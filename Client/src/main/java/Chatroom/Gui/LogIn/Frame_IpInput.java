@@ -152,13 +152,11 @@ public class Frame_IpInput extends JFrame implements ActionListener {
 
         LiteSQL.connect();
         SQLManager.onCreate();
-        this.dispose();
 
         try {
 
             Socket sqlClient = new Socket(ip.getText(), 9383);
             Socket distributor = new Socket(ip.getText(), 9382);
-
 
             String uIn = userIn.getText();
             String pIn = passwordIn.getText();
@@ -185,9 +183,9 @@ public class Frame_IpInput extends JFrame implements ActionListener {
 
                     System.out.println("Login succeed");
 
+                    this.dispose();
                     new Global(ip.getText(), sqlClient, distributor, user, background, background2, foreground, lines);
                     new Frame_Dashboard();
-                    dispose();
 
                 } else {
 

@@ -24,18 +24,18 @@ public class Listener_Action implements ActionListener {
 
         switch (buttonName) {
 
-            case "logOut" -> {
+            case "Log Out" -> {
                 System.out.println("LogOut Button Working");
                 frame.dispose();
                 new Frame_IpInput();
             }
-            case "group" -> System.out.println("Group Button Working");
+            case "Create Group" -> System.out.println("Group Button Working");
             //TODO
-            case "contacts" -> {
+            case "Contacts" -> {
                 frame.dispose();
                 new Frame_Contacts();
             }
-            case "chats" -> {
+            case "Chats" -> {
                 frame.dispose();
                 new Frame_PrivateChats();
             }

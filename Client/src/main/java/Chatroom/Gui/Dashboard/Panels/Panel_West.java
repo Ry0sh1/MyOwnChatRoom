@@ -5,7 +5,11 @@ import Chatroom.Gui.Dashboard.Frame_Dashboard;
 import Chatroom.Gui.Dashboard.Listener.Listener_Button;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import javax.swing.plaf.metal.MetalScrollBarUI;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,7 +29,35 @@ public class Panel_West extends JPanel {
         JScrollPane scrollPane = new JScrollPane(groupPanel);
 
         displayGroups();
+        setBackground(Global.BACKGROUND_1);
+        setForeground(Global.FOREGROUND);
         scrollPane.setPreferredSize(new Dimension(700, 400));
+        scrollPane.setBorder(null);
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = Global.BACKGROUND_2;
+                this.trackColor = Global.BACKGROUND_1;
+            }
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton() {
+                JButton jbutton = new JButton();
+                jbutton.setPreferredSize(new Dimension(0, 0));
+                jbutton.setMinimumSize(new Dimension(0, 0));
+                jbutton.setMaximumSize(new Dimension(0, 0));
+                return jbutton;
+            }
+        });
+
         setBorder(BorderFactory.createEmptyBorder(10,40,10,80));
         add(scrollPane);
 
@@ -34,8 +66,14 @@ public class Panel_West extends JPanel {
     public void addGroup(String groupName){
 
         JButton button = new JButton(groupName);
-        button.setPreferredSize(new Dimension(200,20));
+        button.setPreferredSize(new Dimension(500,100));
         button.addActionListener(new Listener_Button(groupName, frame));
+        button.setFocusable(false);
+        button.addMouseListener(Global.ENTER);
+        button.addMouseListener(Global.EXIT);
+        button.setBackground(Global.BACKGROUND_1);
+        button.setForeground(Global.FOREGROUND);
+        button.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
         groupPanel.add(button);
         revalidate();
         repaint();

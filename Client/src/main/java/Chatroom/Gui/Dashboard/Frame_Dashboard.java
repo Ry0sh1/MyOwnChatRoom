@@ -15,6 +15,8 @@ public class Frame_Dashboard extends JFrame{
 
         add(panelAll);
 
+        setBackground(Global.BACKGROUND_1);
+        setForeground(Global.FOREGROUND);
         setTitle(Global.USER.getUsername());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
