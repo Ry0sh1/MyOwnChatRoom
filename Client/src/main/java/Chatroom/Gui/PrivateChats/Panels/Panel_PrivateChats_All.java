@@ -1,5 +1,6 @@
 package Chatroom.Gui.PrivateChats.Panels;
 
+import Chatroom.Global;
 import Chatroom.Gui.PrivateChats.Frame_PrivateChats;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class Panel_PrivateChats_All extends JPanel {
 
         setLayout(new BorderLayout());
 
+        setBackground(Global.BACKGROUND_1);
         add(north, BorderLayout.NORTH);
         add(south, BorderLayout.SOUTH);
 

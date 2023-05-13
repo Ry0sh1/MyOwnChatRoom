@@ -13,7 +13,7 @@ public class Panel_Contacts_South extends JPanel {
 
         JButton cancel = new JButton("Cancel");
         cancel.addActionListener(new Listener_Contacts_Action("cancel", frame));
-        cancel.setPreferredSize(new Dimension(80,60));
+        cancel.setPreferredSize(new Dimension(140,60));
         cancel.setBackground(Global.BACKGROUND_1);
         cancel.setForeground(Global.FOREGROUND);
         cancel.addMouseListener(Global.EXIT);

@@ -25,9 +25,11 @@ public class Panel_South extends JPanel {
                 "10 Groups per User\n" +
                 "Beautiful GUI\n" +
                 "Visual Notification on new Message\n" +
-                "Saw message indicator\n");
+                "Saw message indicator\n" +
+                "Editable Profiles");
 
         JScrollPane pane = new JScrollPane(upcomingUpdates);
+        //pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
         pane.setBorder(BorderFactory.createEmptyBorder());
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

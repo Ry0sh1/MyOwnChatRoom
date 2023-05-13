@@ -22,10 +22,14 @@ public class Panel_PrivateChats_North extends JPanel {
 
         panel = new JPanel(new GridLayout(0,1));
         JScrollPane chatPane = new JScrollPane(panel);
-        chatPane.setPreferredSize(new Dimension(300,200));
+        chatPane.getVerticalScrollBar().setUI(Global.BUTTON_SCROLLBAR_UI);
+        chatPane.setBackground(Global.BACKGROUND_1);
+        chatPane.setForeground(Global.FOREGROUND);
+        chatPane.setBorder(BorderFactory.createEmptyBorder());
+        chatPane.setPreferredSize(new Dimension(400,250));
 
         displayChats();
-
+        setBackground(Global.BACKGROUND_1);
         add(chatPane);
 
     }
@@ -37,6 +41,11 @@ public class Panel_PrivateChats_North extends JPanel {
         button.setPreferredSize(new Dimension(200,40));
         button.addActionListener(new Listener_PrivateChats_Action(frame, button.getName()));
         button.setFocusable(false);
+        button.setBackground(Global.BACKGROUND_1);
+        button.addMouseListener(Global.EXIT);
+        button.addMouseListener(Global.ENTER);
+        button.setBorder(BorderFactory.createLineBorder(Global.LINE,2));
+        button.setForeground(Global.FOREGROUND);
         panel.add(button);
         revalidate();
         repaint();

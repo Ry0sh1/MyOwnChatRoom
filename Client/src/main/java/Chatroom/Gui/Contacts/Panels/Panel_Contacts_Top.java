@@ -43,7 +43,7 @@ public class Panel_Contacts_Top extends JPanel {
             contacts.setPreferredSize(new Dimension(400,400));
             contact_pane = new JScrollPane(contacts);
             contact_pane.setBorder(BorderFactory.createEmptyBorder());
-            contact_pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
+            contact_pane.getVerticalScrollBar().setUI(Global.BUTTON_SCROLLBAR_UI);
 
             setBackground(Global.BACKGROUND_1);
             setForeground(Global.FOREGROUND);

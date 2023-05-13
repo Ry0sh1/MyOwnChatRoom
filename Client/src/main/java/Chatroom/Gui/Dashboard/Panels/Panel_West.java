@@ -33,7 +33,7 @@ public class Panel_West extends JPanel {
         setForeground(Global.FOREGROUND);
         scrollPane.setPreferredSize(new Dimension(700, 400));
         scrollPane.setBorder(null);
-        scrollPane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
+        scrollPane.getVerticalScrollBar().setUI(Global.BUTTON_SCROLLBAR_UI);
 
         setBorder(BorderFactory.createEmptyBorder(10,40,10,80));
         add(scrollPane);

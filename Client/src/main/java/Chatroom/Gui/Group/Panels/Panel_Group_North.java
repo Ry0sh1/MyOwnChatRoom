@@ -23,7 +23,7 @@ public class Panel_Group_North extends JPanel {
         pane.setBackground(Global.BACKGROUND_2);
         pane.setForeground(Global.FOREGROUND);
         pane.setBorder(BorderFactory.createLineBorder(Global.LINE,2));
-        pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
+        pane.getVerticalScrollBar().setUI(Global.TEXTAREA_SCROLLBAR_UI);
 
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);
