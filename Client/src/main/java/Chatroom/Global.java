@@ -1,5 +1,7 @@
 package Chatroom;
 
+import Chatroom.SQL.LiteSQL;
+
 import javax.swing.*;
 import javax.swing.plaf.ScrollBarUI;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -25,7 +27,7 @@ public class Global {
     public static ScrollBarUI BUTTON_SCROLLBAR_UI;
     public static ScrollBarUI TEXTAREA_SCROLLBAR_UI;
 
-    public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground, Color lines){
+    public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground){
 
         SERVERIP = serverIp;
         SQL_CLIENT = sqlClient;
@@ -34,7 +36,6 @@ public class Global {
         BACKGROUND_1 = background;
         BACKGROUND_2 = background2;
         FOREGROUND = foreground;
-        LINE = lines;
         System.out.println("Global constants initialized");
 
         ENTER = new MouseAdapter() {
@@ -113,6 +114,22 @@ public class Global {
     public static void setActualChatNickname(String nickname){
 
         ACTUAL_CHAT_NICKNAME = nickname;
+
+    }
+
+    public static void setLINE(int i){
+
+        LiteSQL.onUpdate("UPDATE settings SET color = " + i);
+
+        switch (i){
+
+            case 0 -> LINE = new Color(180, 10, 10);
+            case 1 -> LINE = Color.BLUE;
+            case 2 -> LINE = Color.GREEN;
+            case 3 -> LINE = Color.YELLOW;
+            case 4 -> LINE = Color.MAGENTA;
+
+        }
 
     }
 

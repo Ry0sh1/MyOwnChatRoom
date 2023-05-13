@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.SQLException;
 
 public class Frame_IpInput extends JFrame implements ActionListener {
 
@@ -25,7 +26,6 @@ public class Frame_IpInput extends JFrame implements ActionListener {
     private Color foreground = Color.white;
     private Color background = new Color(40,40,40);
     private Color background2 = new Color(60, 60, 60);
-    private Color lines = new Color(180, 10, 10);
     private JTextField userIn = new JTextField();
     private JTextField passwordIn = new JTextField();
 
@@ -43,6 +43,23 @@ public class Frame_IpInput extends JFrame implements ActionListener {
         JPanel panelUser = new JPanel(new FlowLayout());
         JPanel panelPassword = new JPanel(new FlowLayout());
         JLabel labelIp = new JLabel("Server Ip:");
+
+        try {
+
+            if (LiteSQL.onQuery("SELECT color FROM settings WHERE id = 1").getInt(1)!=0){
+
+                Global.setLINE(LiteSQL.onQuery("SELECT color FROM settings WHERE id = 1").getInt(1));
+
+            }else {
+
+                LiteSQL.onUpdate("INSERT INTO settings(id, color) VALUES (1, 0)");
+                Global.setLINE(0);
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         //MouseAdapter
         MouseAdapter enter = new MouseAdapter() {
@@ -70,12 +87,12 @@ public class Frame_IpInput extends JFrame implements ActionListener {
         ip.setPreferredSize(new Dimension(100,20));
         ip.setBackground(background2);
         ip.setForeground(foreground);
-        ip.setBorder(BorderFactory.createLineBorder(lines,2));
+        ip.setBorder(BorderFactory.createLineBorder(Global.LINE,2));
 
         go.setPreferredSize(new Dimension(150,20));
         go.setMaximumSize(new Dimension(300,40));
         go.setFocusable(false);
-        go.setBorder(BorderFactory.createLineBorder(lines, 2));
+        go.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
         go.setBackground(background);
         go.setForeground(foreground);
 
@@ -99,11 +116,11 @@ public class Frame_IpInput extends JFrame implements ActionListener {
         userIn.setPreferredSize(new Dimension(100,20));
         userIn.setBackground(background2);
         userIn.setForeground(foreground);
-        userIn.setBorder(BorderFactory.createLineBorder(lines, 2));
+        userIn.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
         passwordIn.setPreferredSize(new Dimension(100,20));
         passwordIn.setBackground(background2);
         passwordIn.setForeground(foreground);
-        passwordIn.setBorder(BorderFactory.createLineBorder(lines, 2));
+        passwordIn.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
 
         panelUser.setBackground(background);
         panelPassword.setBackground(background);
@@ -143,15 +160,14 @@ public class Frame_IpInput extends JFrame implements ActionListener {
     public static void main(String[] args) {
 
         System.out.println("~Ryoshi");
+        LiteSQL.connect();
+        SQLManager.onCreate();
         new Frame_IpInput();
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        LiteSQL.connect();
-        SQLManager.onCreate();
 
         try {
 
@@ -184,7 +200,7 @@ public class Frame_IpInput extends JFrame implements ActionListener {
                     System.out.println("Login succeed");
 
                     this.dispose();
-                    new Global(ip.getText(), sqlClient, distributor, user, background, background2, foreground, lines);
+                    new Global(ip.getText(), sqlClient, distributor, user, background, background2, foreground);
                     new Frame_Dashboard();
 
                 } else {

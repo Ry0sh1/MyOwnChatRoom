@@ -9,6 +9,7 @@ public class SQLManager {
                 "  message TEXT NOT NULL,\n" +
                 "   owner TEXT NOT NULL, \n " +
                 "PRIMARY KEY (time, username, message, owner))");
+        LiteSQL.onUpdate("CREATE TABLE IF NOT EXISTS settings(id INT, color INT NOT NULL)");
 
     }
 
