@@ -1,6 +1,8 @@
 package Chatroom;
 
 import javax.swing.*;
+import javax.swing.plaf.ScrollBarUI;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,6 +22,7 @@ public class Global {
     public static Color LINE;
     public static MouseAdapter ENTER;
     public static MouseAdapter EXIT;
+    public static ScrollBarUI SCROLLBAR_UI;
 
     public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground, Color lines){
 
@@ -37,14 +40,39 @@ public class Global {
             @Override
             public void mouseEntered(MouseEvent e) {
                 JButton b = (JButton) e.getComponent();
-                b.setBackground(background2);
+                b.setBackground(BACKGROUND_2);
             }
         };
         EXIT = new MouseAdapter() {
             @Override
             public void mouseExited(MouseEvent e) {
                 JButton b = (JButton) e.getComponent();
-                b.setBackground(background);
+                b.setBackground(BACKGROUND_1);
+            }
+        };
+
+        SCROLLBAR_UI = new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = Global.BACKGROUND_2;
+                this.trackColor = Global.BACKGROUND_1;
+            }
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton() {
+                JButton jbutton = new JButton();
+                jbutton.setPreferredSize(new Dimension(0, 0));
+                jbutton.setMinimumSize(new Dimension(0, 0));
+                jbutton.setMaximumSize(new Dimension(0, 0));
+                return jbutton;
             }
         };
 

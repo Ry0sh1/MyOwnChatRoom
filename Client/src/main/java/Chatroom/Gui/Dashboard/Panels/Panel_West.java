@@ -33,30 +33,7 @@ public class Panel_West extends JPanel {
         setForeground(Global.FOREGROUND);
         scrollPane.setPreferredSize(new Dimension(700, 400));
         scrollPane.setBorder(null);
-        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-            @Override
-            protected void configureScrollBarColors() {
-                this.thumbColor = Global.BACKGROUND_2;
-                this.trackColor = Global.BACKGROUND_1;
-            }
-            @Override
-            protected JButton createDecreaseButton(int orientation) {
-                return createZeroButton();
-            }
-
-            @Override
-            protected JButton createIncreaseButton(int orientation) {
-                return createZeroButton();
-            }
-
-            private JButton createZeroButton() {
-                JButton jbutton = new JButton();
-                jbutton.setPreferredSize(new Dimension(0, 0));
-                jbutton.setMinimumSize(new Dimension(0, 0));
-                jbutton.setMaximumSize(new Dimension(0, 0));
-                return jbutton;
-            }
-        });
+        scrollPane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
 
         setBorder(BorderFactory.createEmptyBorder(10,40,10,80));
         add(scrollPane);

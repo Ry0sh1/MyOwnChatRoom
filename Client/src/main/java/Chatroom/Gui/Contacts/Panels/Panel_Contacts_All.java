@@ -1,5 +1,6 @@
 package Chatroom.Gui.Contacts.Panels;
 
+import Chatroom.Global;
 import Chatroom.Gui.Contacts.Frame_Contacts;
 
 import javax.swing.*;
@@ -12,8 +13,11 @@ public class Panel_Contacts_All extends JPanel {
         Panel_Contacts_Top top = new Panel_Contacts_Top();
         Panel_Contacts_South south = new Panel_Contacts_South(frame);
 
-        add(top, BorderLayout.NORTH);
-        add(south, BorderLayout.SOUTH);
+        setBackground(Global.BACKGROUND_1);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setAlignmentX(CENTER_ALIGNMENT);
+        add(top);
+        add(south);
 
     }
 

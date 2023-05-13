@@ -3,6 +3,7 @@ package Chatroom.Gui.Contacts.Panels;
 import Chatroom.Global;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,8 +34,19 @@ public class Panel_Contacts_Top extends JPanel {
             }
 
             JTable contacts = new JTable(data, col);
+            contacts.setBackground(Global.BACKGROUND_1);
+            contacts.setGridColor(Global.BACKGROUND_2);
+            contacts.setForeground(Global.FOREGROUND);
+            contacts.getTableHeader().setBackground(Global.BACKGROUND_2);
+            contacts.getTableHeader().setForeground(Global.FOREGROUND);
+            contacts.setBorder(BorderFactory.createEmptyBorder());
             contacts.setPreferredSize(new Dimension(400,400));
             contact_pane = new JScrollPane(contacts);
+            contact_pane.setBorder(BorderFactory.createEmptyBorder());
+            contact_pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
+
+            setBackground(Global.BACKGROUND_1);
+            setForeground(Global.FOREGROUND);
             add(contact_pane);
 
         }catch (IOException e) {

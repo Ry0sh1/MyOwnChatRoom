@@ -28,6 +28,7 @@ public class Panel_Chat_North extends JPanel{
         chat.setLineWrap(true);
         loadChat();
         JScrollPane pane = new JScrollPane(chat);
+        pane.getVerticalScrollBar().setUI(Global.SCROLLBAR_UI);
 
         pane.setPreferredSize(new Dimension(400,400));
 
