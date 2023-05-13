@@ -22,7 +22,8 @@ public class Global {
     public static Color LINE;
     public static MouseAdapter ENTER;
     public static MouseAdapter EXIT;
-    public static ScrollBarUI SCROLLBAR_UI;
+    public static ScrollBarUI BUTTON_SCROLLBAR_UI;
+    public static ScrollBarUI TEXTAREA_SCROLLBAR_UI;
 
     public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground, Color lines){
 
@@ -51,11 +52,36 @@ public class Global {
             }
         };
 
-        SCROLLBAR_UI = new BasicScrollBarUI() {
+        BUTTON_SCROLLBAR_UI = new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
                 this.thumbColor = Global.BACKGROUND_2;
                 this.trackColor = Global.BACKGROUND_1;
+            }
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton() {
+                JButton jbutton = new JButton();
+                jbutton.setPreferredSize(new Dimension(0, 0));
+                jbutton.setMinimumSize(new Dimension(0, 0));
+                jbutton.setMaximumSize(new Dimension(0, 0));
+                return jbutton;
+            }
+        };
+
+        TEXTAREA_SCROLLBAR_UI = new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = Global.BACKGROUND_1;
+                this.trackColor = Global.BACKGROUND_2;
             }
             @Override
             protected JButton createDecreaseButton(int orientation) {

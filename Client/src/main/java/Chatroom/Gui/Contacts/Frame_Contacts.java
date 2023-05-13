@@ -1,8 +1,10 @@
 package Chatroom.Gui.Contacts;
 
+import Chatroom.Global;
 import Chatroom.Gui.Contacts.Panels.Panel_Contacts_All;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Frame_Contacts extends JFrame {
 
@@ -12,6 +14,8 @@ public class Frame_Contacts extends JFrame {
 
         add(all);
 
+        setBackground(Global.BACKGROUND_1);
+        setForeground(Global.FOREGROUND);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
         setVisible(true);
