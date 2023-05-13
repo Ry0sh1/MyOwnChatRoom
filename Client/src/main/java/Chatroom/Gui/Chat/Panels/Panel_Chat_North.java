@@ -26,12 +26,18 @@ public class Panel_Chat_North extends JPanel{
         chat.setAutoscrolls(true);
         chat.setWrapStyleWord(true);
         chat.setLineWrap(true);
+        chat.setBackground(Global.BACKGROUND_2);
+        chat.setForeground(Global.FOREGROUND);
         loadChat();
         JScrollPane pane = new JScrollPane(chat);
+        pane.setBackground(Global.BACKGROUND_2);
+        pane.setForeground(Global.FOREGROUND);
+        pane.setBorder(BorderFactory.createLineBorder(Global.LINE,2));
         pane.getVerticalScrollBar().setUI(Global.TEXTAREA_SCROLLBAR_UI);
 
-        pane.setPreferredSize(new Dimension(400,400));
+        pane.setPreferredSize(new Dimension(720,400));
 
+        setBackground(Global.BACKGROUND_1);
         Global.setActualChatNickname(with.getUsername());
         Global.setActualChat(chat);
         add(pane);

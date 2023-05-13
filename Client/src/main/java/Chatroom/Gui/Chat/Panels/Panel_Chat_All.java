@@ -1,5 +1,6 @@
 package Chatroom.Gui.Chat.Panels;
 
+import Chatroom.Global;
 import Chatroom.Gui.Chat.Frame_Chat;
 import Chatroom.User;
 
@@ -15,8 +16,11 @@ public class Panel_Chat_All extends JPanel {
         north = new Panel_Chat_North(with);
         Panel_Chat_South south = new Panel_Chat_South(frame, with);
 
-        add(north, BorderLayout.NORTH);
-        add(south, BorderLayout.SOUTH);
+        setBackground(Global.BACKGROUND_1);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setAlignmentX(CENTER_ALIGNMENT);
+        add(north);
+        add(south);
 
     }
 
