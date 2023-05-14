@@ -110,8 +110,10 @@ public class Global implements ActionListener {
 
         String[] colorNames = {"Red", "Blue", "Green", "Yellow", "Magenta", "Kevin"};
         MENUBAR = new JMenuBar();
+        JMenuItem logout = new JMenuItem("LogOut");
         JMenu settings = new JMenu("Menu");
         JMenu menuColors = new JMenu("Select Color");
+        JMenuItem back = new JMenuItem("Back");
 
         for (int i = 0; i < colorNames.length; i++){
 
@@ -124,6 +126,8 @@ public class Global implements ActionListener {
         }
 
         settings.add(menuColors);
+        settings.add(logout);
+        settings.add(back);
         settings.setFocusable(true);
         settings.setEnabled(true);
 

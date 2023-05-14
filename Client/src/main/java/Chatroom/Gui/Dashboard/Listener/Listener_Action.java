@@ -1,6 +1,7 @@
 package Chatroom.Gui.Dashboard.Listener;
 
 import Chatroom.Gui.Contacts.Frame_Contacts;
+import Chatroom.Gui.CreateGroup.Frame_CreateGroup;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
 import Chatroom.Gui.LogIn.Frame_IpInput;
 import Chatroom.Gui.PrivateChats.Frame_PrivateChats;
@@ -25,12 +26,13 @@ public class Listener_Action implements ActionListener {
         switch (buttonName) {
 
             case "Log Out" -> {
-                System.out.println("LogOut Button Working");
                 frame.dispose();
                 new Frame_IpInput();
             }
-            case "Create Group" -> System.out.println("Group Button Working");
-            //TODO
+            case "Create Group" -> {
+                frame.dispose();
+                new Frame_CreateGroup();
+            }
             case "Contacts" -> {
                 frame.dispose();
                 new Frame_Contacts();
