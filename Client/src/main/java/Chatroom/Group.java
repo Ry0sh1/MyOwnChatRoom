@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.Socket;
 
 public class Group {
 
@@ -16,8 +17,10 @@ public class Group {
 
         try {
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(Global.SQL_CLIENT.getInputStream()));
-            PrintWriter out = new PrintWriter(Global.SQL_CLIENT.getOutputStream(), true);
+            Socket sqlClient = Global.SQL_CLIENT;
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(sqlClient.getInputStream()));
+            PrintWriter out = new PrintWriter(sqlClient.getOutputStream(), true);
 
             out.println("quSELECT id FROM groups WHERE name = '" + name + "'");
 
