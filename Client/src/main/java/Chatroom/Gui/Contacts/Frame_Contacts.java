@@ -14,6 +14,7 @@ public class Frame_Contacts extends JFrame {
 
         add(all);
 
+        setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

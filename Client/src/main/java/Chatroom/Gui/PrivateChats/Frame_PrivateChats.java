@@ -14,6 +14,7 @@ public class Frame_PrivateChats extends JFrame {
         all = new Panel_PrivateChats_All(this);
         add(all);
 
+        setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();

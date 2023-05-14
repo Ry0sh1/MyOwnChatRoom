@@ -6,11 +6,14 @@ import javax.swing.*;
 import javax.swing.plaf.ScrollBarUI;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.Socket;
+import java.util.Arrays;
 
-public class Global {
+public class Global implements ActionListener {
 
     public static String SERVERIP;
     public static Socket SQL_CLIENT;
@@ -26,6 +29,8 @@ public class Global {
     public static MouseAdapter EXIT;
     public static ScrollBarUI BUTTON_SCROLLBAR_UI;
     public static ScrollBarUI TEXTAREA_SCROLLBAR_UI;
+    public static JMenuBar MENUBAR;
+    private JMenuItem[] colors = new JMenuItem[6];
 
     public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground){
 
@@ -103,6 +108,27 @@ public class Global {
             }
         };
 
+        String[] colorNames = {"Red", "Blue", "Green", "Yellow", "Magenta", "Kevin"};
+        MENUBAR = new JMenuBar();
+        JMenu settings = new JMenu("Menu");
+        JMenu menuColors = new JMenu("Select Color");
+
+        for (int i = 0; i < colorNames.length; i++){
+
+            JMenuItem c = new JMenuItem(colorNames[i]);
+            c.setName(colorNames[i]);
+            c.addActionListener(this);
+            menuColors.add(c);
+            colors[i] = c;
+
+        }
+
+        settings.add(menuColors);
+        settings.setFocusable(true);
+        settings.setEnabled(true);
+
+        MENUBAR.add(settings);
+
     }
 
     public static void setActualChat(JTextArea n){
@@ -128,6 +154,29 @@ public class Global {
             case 2 -> LINE = Color.GREEN;
             case 3 -> LINE = Color.YELLOW;
             case 4 -> LINE = Color.MAGENTA;
+            case 5 -> LINE = new Color(0x11d99a);
+
+        }
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (Arrays.asList(colors).contains(e.getSource())){
+
+            JMenuItem j = (JMenuItem) e.getSource();
+
+            switch (j.getName()){
+
+                case "Blue" -> Global.setLINE(1);
+                case "Red" -> Global.setLINE(0);
+                case "Green" -> Global.setLINE(2);
+                case "Yellow" -> Global.setLINE(3);
+                case "Magenta" -> Global.setLINE(4);
+                case "Kevin" -> Global.setLINE(5);
+
+            }
 
         }
 

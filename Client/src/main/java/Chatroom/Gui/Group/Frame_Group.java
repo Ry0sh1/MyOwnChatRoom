@@ -34,6 +34,7 @@ public class Frame_Group extends JFrame implements Runnable{
         all = new Panel_Group_All(groupClient, group, this);
         add(all);
 
+        setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);
         setPreferredSize(new Dimension(800,600));
