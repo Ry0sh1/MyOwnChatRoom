@@ -12,6 +12,7 @@ public class Frame_GroupDetails extends JFrame {
 
         add(new Panel_GroupDetails_All(this));
 
+        setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setTitle(Frame_Group.getGroupName());
         pack();

@@ -4,6 +4,7 @@ import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
 import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.AddMember.Frame_AddMember;
 import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
 
 import javax.swing.*;
@@ -79,6 +80,10 @@ public class Listener_GroupDetails_Action implements ActionListener {
                 System.out.println("Error");
 
             }
+
+        } else if (buttonName.equals("add")) {
+
+            new Frame_AddMember();
 
         }
 

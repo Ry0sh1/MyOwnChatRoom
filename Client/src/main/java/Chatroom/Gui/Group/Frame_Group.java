@@ -70,7 +70,7 @@ public class Frame_Group extends JFrame implements Runnable{
 
         try {
 
-            System.out.println("new group client closed");
+            System.out.println("new group client connected");
 
             BufferedReader in = new BufferedReader(new InputStreamReader(groupClient.getInputStream()));
 

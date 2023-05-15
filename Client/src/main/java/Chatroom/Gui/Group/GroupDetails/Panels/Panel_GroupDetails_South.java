@@ -17,8 +17,11 @@ public class Panel_GroupDetails_South extends JPanel {
         cancel.setName("cancel");
         JButton leave = new JButton("Leave Group");
         leave.setName("leave");
+        JButton add = new JButton("Add Member");
+        add.setName("add");
         buttons.add(leave);
         buttons.add(cancel);
+        buttons.add(add);
 
         for (JButton b:buttons) {
 

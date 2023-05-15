@@ -83,5 +83,4 @@ public class Panel_PrivateChats_North extends JPanel {
 
     }
 
-
 }

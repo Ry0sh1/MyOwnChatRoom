@@ -48,16 +48,14 @@ public class Panel_Group_South extends JPanel {
         cancel.setPreferredSize(new Dimension(80,50));
 
         JButton viewGroup = new JButton("View Group");
+        viewGroup.setName("viewGroup");
         viewGroup.setBackground(Global.BACKGROUND_1);
         viewGroup.setForeground(Global.FOREGROUND);
         viewGroup.addMouseListener(Global.ENTER);
         viewGroup.addMouseListener(Global.EXIT);
         viewGroup.setFocusable(false);
         viewGroup.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
-        viewGroup.addActionListener(e->{
-            new Frame_GroupDetails();
-            frame.dispose();
-        });
+        viewGroup.addActionListener(new Listener_Group_Action(groupClient, frame, "viewGroup", group));
         viewGroup.setPreferredSize(new Dimension(80,50));
 
 

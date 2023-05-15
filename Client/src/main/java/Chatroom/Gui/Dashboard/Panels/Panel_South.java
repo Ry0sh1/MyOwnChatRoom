@@ -25,15 +25,11 @@ public class Panel_South extends JPanel {
                 "More themes & Colors\n" +
                 "Even more security between server and client\n" +
                 "Shift settings to menubar + add more menus\n" +
-                "Leave Group button + see member button\n" +
                 "Fixing problems with Group Class\n" +
                 "Button to add someone to a group\n" +
                 "rights inside the groups\n" +
-                "rights to fix server issues\n" +
-                "add menu items\n" +
                 "allow to send files and pictures\n" +
-                "Add a primary key to group so that more that you can have groups with the same name\n" +
-                "message when added to a group");
+                "Add a primary key to group so that more that you can have groups with the same name\n");
 
         JScrollPane scPane = new JScrollPane(upcomingUpdates);
         scPane.setPreferredSize(new Dimension(800,100));
