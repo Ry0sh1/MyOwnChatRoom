@@ -48,23 +48,32 @@ public class Listener_CreateGroup_Action implements ActionListener {
                 Socket sqlClient = Global.SQL_CLIENT;
                 PrintWriter out = new PrintWriter(sqlClient.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(sqlClient.getInputStream()));
-                System.out.println(groupName);
-                out.println("upINSERT INTO groups(name) VALUES ('" + groupName + "')");
-                out.println("quSELECT id FROM groups WHERE name = '" + groupName + "'");
-                String groupId = in.readLine();
-                System.out.println(groupId);
 
-                for (String s:member) {
+                out.println("quSELECT COUNT(*) FROM groups WHERE name = '" + groupName + "'");
 
-                    out.println("upINSERT INTO userToGroup(groupID, username) VALUES (" + groupId + ",'" + s + "')");
+                if (Integer.parseInt(in.readLine())>0){
+
+                    JOptionPane.showMessageDialog(frame, "There already exists a Group with this name!");
+
+                }else {
+
+                    out.println("upINSERT INTO groups(name) VALUES ('" + groupName + "')");
+                    out.println("quSELECT id FROM groups WHERE name = '" + groupName + "'");
+                    String groupId = in.readLine();
+
+                    for (String s:member) {
+
+                        out.println("upINSERT INTO userToGroup(groupID, username) VALUES (" + groupId + ",'" + s + "')");
+
+                    }
+
+                    JOptionPane.showMessageDialog(frame, "Group created!");
+                    Panel_CreateGroup_All.clearIN();
+                    Panel_CreateGroup_Center.clearUSER();
+                    frame.dispose();
+                    new Frame_Dashboard();
 
                 }
-
-                JOptionPane.showMessageDialog(frame, "Group created!");
-                Panel_CreateGroup_All.clearIN();
-                Panel_CreateGroup_Center.clearUSER();
-                frame.dispose();
-                new Frame_Dashboard();
 
             }catch (IOException i){
 

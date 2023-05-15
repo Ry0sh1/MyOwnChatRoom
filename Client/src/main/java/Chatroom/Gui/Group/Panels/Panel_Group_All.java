@@ -3,6 +3,8 @@ package Chatroom.Gui.Group.Panels;
 import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
+import Chatroom.Gui.Group.GroupDetails.Listener.Listener_GroupDetails_Action;
 
 import javax.swing.*;
 import java.awt.*;

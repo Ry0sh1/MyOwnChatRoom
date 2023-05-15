@@ -3,6 +3,7 @@ package Chatroom.Gui.Group.Panels;
 import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
 import Chatroom.Gui.Group.Listener.Listener_Group_Action;
 
 import javax.swing.*;
@@ -46,9 +47,24 @@ public class Panel_Group_South extends JPanel {
         cancel.addMouseListener(Global.EXIT);
         cancel.setPreferredSize(new Dimension(80,50));
 
+        JButton viewGroup = new JButton("View Group");
+        viewGroup.setBackground(Global.BACKGROUND_1);
+        viewGroup.setForeground(Global.FOREGROUND);
+        viewGroup.addMouseListener(Global.ENTER);
+        viewGroup.addMouseListener(Global.EXIT);
+        viewGroup.setFocusable(false);
+        viewGroup.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
+        viewGroup.addActionListener(e->{
+            new Frame_GroupDetails();
+            frame.dispose();
+        });
+        viewGroup.setPreferredSize(new Dimension(80,50));
+
+
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);
         setLayout(new FlowLayout());
+        add(viewGroup);
         add(input);
         add(send);
         add(cancel);

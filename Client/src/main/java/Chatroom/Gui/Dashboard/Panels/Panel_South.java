@@ -18,9 +18,7 @@ public class Panel_South extends JPanel {
         upcomingUpdates.setLineWrap(true);
 
         upcomingUpdates.setText("Temp database to store messages for User who are offline + loading from database\n" +
-                "Message Notification\n" +
                 "10 Groups per User\n" +
-                "Beautiful GUI\n" +
                 "Visual Notification on new Message\n" +
                 "Saw message indicator\n" +
                 "Editable Profiles\n" +
@@ -32,7 +30,10 @@ public class Panel_South extends JPanel {
                 "Button to add someone to a group\n" +
                 "rights inside the groups\n" +
                 "rights to fix server issues\n" +
-                "add menu items");
+                "add menu items\n" +
+                "allow to send files and pictures\n" +
+                "Add a primary key to group so that more that you can have groups with the same name\n" +
+                "message when added to a group");
 
         JScrollPane scPane = new JScrollPane(upcomingUpdates);
         scPane.setPreferredSize(new Dimension(800,100));

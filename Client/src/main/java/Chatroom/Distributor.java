@@ -3,6 +3,7 @@ package Chatroom;
 import Chatroom.SQL.LiteSQL;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -85,6 +86,20 @@ public class Distributor implements Runnable{
 
                             }
 
+                        }else{
+
+                            if (SystemTray.isSupported()){
+
+                                SystemTray tray = SystemTray.getSystemTray();
+                                Image img = Toolkit.getDefaultToolkit().getImage("icon.png");
+                                TrayIcon trayIcon = new TrayIcon(img, "Tray Demo");
+                                trayIcon.setImageAutoSize(true);
+                                trayIcon.setToolTip("System try icon demo");
+                                tray.add(trayIcon);
+                                trayIcon.displayMessage(from, aMessage, TrayIcon.MessageType.NONE);
+
+                            }
+
                         }
 
                     }
@@ -97,6 +112,8 @@ public class Distributor implements Runnable{
 
             i.printStackTrace();
 
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
         }
 
     }
