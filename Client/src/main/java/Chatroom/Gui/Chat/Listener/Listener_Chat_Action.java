@@ -43,7 +43,7 @@ public class Listener_Chat_Action implements ActionListener {
                 //Message Design: "from.to.message
 
                 String from = String.format("%1$-30s",Global.USER.getUsername());
-                String to = String.format("%1$-30s",with.getUsername());;
+                String to = String.format("%1$-30s",with.getUsername());
                 String message = panel.getText();
                 PrintWriter out = new PrintWriter(Global.DIS_CLIENT.getOutputStream(), true);
 

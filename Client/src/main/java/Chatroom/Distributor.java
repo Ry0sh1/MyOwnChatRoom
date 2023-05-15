@@ -57,48 +57,62 @@ public class Distributor implements Runnable{
 
                     if (from.equals(user.getUsername()) || to.equals(user.getUsername()) ) {
 
-                        GregorianCalendar calendar = new GregorianCalendar();
+                        if (!from.equals("Server")) {
 
-                        try {
+                            GregorianCalendar calendar = new GregorianCalendar();
 
-                            LiteSQL.onUpdate("INSERT INTO messages(time, message, username, owner) VALUES('"
-                                    + calendar.getTime().getTime() + "','"
-                                    + aMessage + "','"
-                                    + username + "','"
-                                    + from + "')");
+                            try {
 
-                        }catch (RuntimeException r){
+                                LiteSQL.onUpdate("INSERT INTO messages(time, message, username, owner) VALUES('"
+                                        + calendar.getTime().getTime() + "','"
+                                        + aMessage + "','"
+                                        + username + "','"
+                                        + from + "')");
 
-                            JOptionPane.showMessageDialog(null, "Not saving redundant Information");
+                            } catch (RuntimeException r) {
 
-                        }
-
-                        long time = calendar.getTime().getTime();
-                        Date d = new Date(time);
-
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-                        String formattedTime = sdf.format(d);
-                        if (Global.ACTUAL_CHAT_NICKNAME != null){
-
-                            if (Global.ACTUAL_CHAT_NICKNAME.equals(from) || Global.USER.getUsername().equals(from)){
-
-                                Global.ACTUAL_CHAT.append(from + ": " + formattedTime + ": " + aMessage + "\n");
+                                JOptionPane.showMessageDialog(null, "Not saving redundant Information");
 
                             }
 
-                        }else{
+                            long time = calendar.getTime().getTime();
+                            Date d = new Date(time);
 
-                            if (SystemTray.isSupported()){
+                            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                            String formattedTime = sdf.format(d);
+                            if (Global.ACTUAL_CHAT_NICKNAME != null) {
 
-                                SystemTray tray = SystemTray.getSystemTray();
-                                Image img = Toolkit.getDefaultToolkit().getImage("icon.png");
-                                TrayIcon trayIcon = new TrayIcon(img, "Tray Demo");
-                                trayIcon.setImageAutoSize(true);
-                                trayIcon.setToolTip("System try icon demo");
-                                tray.add(trayIcon);
-                                trayIcon.displayMessage(from, aMessage, TrayIcon.MessageType.NONE);
+                                if (Global.ACTUAL_CHAT_NICKNAME.equals(from) || Global.USER.getUsername().equals(from)) {
+
+                                    Global.ACTUAL_CHAT.append(from + ": " + formattedTime + ": " + aMessage + "\n");
+
+                                }
+
+                            } else {
+
+                                if (SystemTray.isSupported()) {
+
+                                    SystemTray tray = SystemTray.getSystemTray();
+                                    Image img = Toolkit.getDefaultToolkit().getImage("icon.png");
+                                    TrayIcon trayIcon = new TrayIcon(img, "Tray Demo");
+                                    trayIcon.setImageAutoSize(true);
+                                    trayIcon.setToolTip("System try icon demo");
+                                    tray.add(trayIcon);
+                                    trayIcon.displayMessage(from, aMessage, TrayIcon.MessageType.NONE);
+
+                                }
 
                             }
+
+                        }else {
+
+                            SystemTray tray = SystemTray.getSystemTray();
+                            Image img = Toolkit.getDefaultToolkit().getImage("icon.png");
+                            TrayIcon trayIcon = new TrayIcon(img, "Tray Demo");
+                            trayIcon.setImageAutoSize(true);
+                            trayIcon.setToolTip("System try icon demo");
+                            tray.add(trayIcon);
+                            trayIcon.displayMessage(from, aMessage, TrayIcon.MessageType.NONE);
 
                         }
 

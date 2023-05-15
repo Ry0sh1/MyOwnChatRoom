@@ -46,6 +46,8 @@ public class Listener_CreateGroup_Action implements ActionListener {
                 String groupName = Panel_CreateGroup_All.getIN().getText();
 
                 Socket sqlClient = Global.SQL_CLIENT;
+                Socket disClient = Global.DIS_CLIENT;
+                PrintWriter outDis = new PrintWriter(disClient.getOutputStream(), true);
                 PrintWriter out = new PrintWriter(sqlClient.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(sqlClient.getInputStream()));
 
@@ -61,9 +63,13 @@ public class Listener_CreateGroup_Action implements ActionListener {
                     out.println("quSELECT id FROM groups WHERE name = '" + groupName + "'");
                     String groupId = in.readLine();
 
+                    String from = String.format("%1$-30s","Server");
+
                     for (String s:member) {
 
                         out.println("upINSERT INTO userToGroup(groupID, username) VALUES (" + groupId + ",'" + s + "')");
+                        String to = String.format("%1$-30s",s);
+                        outDis.println("pr" + from + to + "You got added to a new Group: " + groupName);
 
                     }
 

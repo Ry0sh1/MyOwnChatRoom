@@ -38,7 +38,9 @@ public class Listener_GroupDetails_Action implements ActionListener {
             try {
 
                 Socket sqlClient = Global.SQL_CLIENT;
+                Socket disClient = Global.DIS_CLIENT;
                 PrintWriter out = new PrintWriter(sqlClient.getOutputStream(), true);
+                PrintWriter outDis = new PrintWriter(disClient.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(sqlClient.getInputStream()));
 
                 out.println("quSELECT id FROM groups WHERE name = '" + Frame_Group.getGroupName() + "'");
@@ -54,6 +56,20 @@ public class Listener_GroupDetails_Action implements ActionListener {
                     out.println("upDELETE FROM groups WHERE id = " + groupId);
 
                 }
+
+                //Message everyone that User left the Group
+                out.println("quSELECT COUNT(*) FROM userToGroup WHERE groupID = " + groupId);
+                int columnCount = Integer.parseInt(in.readLine());
+                out.println("pr" + String.format("%1$-30s", "username") + "SELECT u.username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "'");
+                String from = String.format("%1$-30s","Server");
+
+                for (int i = 0; i < columnCount;i++){
+
+                    String to = String.format("%1$-30s",in.readLine());
+                    outDis.println("pr" + from + to + Global.USER.getUsername() + " left the group: " + Frame_Group.getGroupName());
+
+                }
+
 
                 frame.dispose();
                 new Frame_Dashboard();
