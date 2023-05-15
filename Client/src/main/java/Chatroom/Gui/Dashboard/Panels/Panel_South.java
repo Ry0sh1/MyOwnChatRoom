@@ -26,8 +26,7 @@ public class Panel_South extends JPanel {
                 "Even more security between server and client\n" +
                 "Shift settings to menubar + add more menus\n" +
                 "Fixing problems with Group Class\n" +
-                "Button to add someone to a group\n" +
-                "rights inside the groups\n" +
+                "rights inside the groups + Kick option\n" +
                 "allow to send files and pictures\n" +
                 "Add a primary key to group so that more that you can have groups with the same name\n");
 

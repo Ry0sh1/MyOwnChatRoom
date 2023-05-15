@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Main-Class: Server.ClientFrame.LogIn.Frame_LogIn
+Main-Class: Server.Server
 Class-Path: checker-qual-3.31.0.jar sqlite-jdbc-3.41.2.1.jar postgresql-
  42.6.0.jar
 

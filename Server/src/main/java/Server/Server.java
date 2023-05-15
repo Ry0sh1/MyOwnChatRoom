@@ -13,7 +13,7 @@ public class Server implements Runnable{
     private ArrayList<ConnectionHandler> connections;
     private ExecutorService pool;
     private Socket sqlConnection;
-    private final String serverIp = "178.142.66.123";
+    private final String serverIp = "localhost";
     private final int sqlPort = 9383;
     private final int port = 9382;
 

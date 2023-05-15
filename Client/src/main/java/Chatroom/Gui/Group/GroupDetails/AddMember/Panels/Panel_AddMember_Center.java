@@ -39,7 +39,6 @@ public class Panel_AddMember_Center extends JPanel {
                 b.removeMouseListener(Global.ENTER);
                 b.removeMouseListener(Global.EXIT);
 
-
             }
 
         }
@@ -106,7 +105,6 @@ public class Panel_AddMember_Center extends JPanel {
             for (int i = 0; i<columnCount;i++) {
 
                 String dw = in.readLine();
-                System.out.println(dw);
                 addChat(dw);
 
             }
