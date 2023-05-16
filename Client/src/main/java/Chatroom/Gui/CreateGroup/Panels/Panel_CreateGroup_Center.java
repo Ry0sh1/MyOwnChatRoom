@@ -98,10 +98,14 @@ public class Panel_CreateGroup_Center extends JPanel {
             String name = String.format("%1$-30s", "username");
             out.println("pr" + name + state);
 
-
             for (int i = 0; i<columnCount;i++) {
 
-                addChat(in.readLine());
+                String user = in.readLine();
+                if (!user.equals(Global.USER.getUsername())){
+
+                    addChat(user);
+
+                }
 
             }
 

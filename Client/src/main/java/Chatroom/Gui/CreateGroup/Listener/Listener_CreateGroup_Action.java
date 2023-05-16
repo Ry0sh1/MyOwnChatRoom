@@ -59,11 +59,13 @@ public class Listener_CreateGroup_Action implements ActionListener {
                     out.println("quSELECT id FROM groups WHERE name = '" + groupName + "'");
                     String groupId = in.readLine();
 
+                    out.println("upINSERT INTO userToGroup(groupID, username, rights) VALUES ("+groupId+",'"+Global.USER.getUsername()+"',1)");
+
                     String from = String.format("%1$-30s","Server");
 
                     for (String s:member) {
 
-                        out.println("upINSERT INTO userToGroup(groupID, username) VALUES (" + groupId + ",'" + s + "')");
+                        out.println("upINSERT INTO userToGroup(groupID, username, rights) VALUES (" + groupId + ",'" + s + "',0)");
                         String to = String.format("%1$-30s",s);
                         outDis.println("pr" + from + to + "You got added to a new Group: " + groupName);
 
