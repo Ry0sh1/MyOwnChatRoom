@@ -1,22 +1,21 @@
-package Chatroom.Gui.Group.GroupDetails.AddMember.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Panels;
 
 import Chatroom.Global;
-import Chatroom.Gui.CreateGroup.Listener.Listener_CreateGroup_Action;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Frame_AddMember;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Listener.Listener_AddMember_Action;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Frame_AddAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Listener.Listener_AddAdmin_Action;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Panel_AddMember_South extends JPanel {
+public class Panel_AddAdmin_South extends JPanel {
 
-    public Panel_AddMember_South(Frame_AddMember frame){
+    public Panel_AddAdmin_South(Frame_AddAdmin frame){
 
         JButton cancel = new JButton("Cancel");
-        JButton create = new JButton("Add");
+        JButton create = new JButton("Make Admin");
         cancel.setName("cancel");
-        create.setName("add");
+        create.setName("admin");
         ArrayList<JButton> buttons = new ArrayList<>();
         buttons.add(cancel);
         buttons.add(create);
@@ -28,7 +27,7 @@ public class Panel_AddMember_South extends JPanel {
             b.setForeground(Global.FOREGROUND);
             b.addMouseListener(Global.EXIT);
             b.addMouseListener(Global.ENTER);
-            b.addActionListener(new Listener_AddMember_Action(frame, b.getName()));
+            b.addActionListener(new Listener_AddAdmin_Action(frame, b.getName()));
             b.setPreferredSize(new Dimension(120,80));
             b.setFocusable(false);
             add(b);

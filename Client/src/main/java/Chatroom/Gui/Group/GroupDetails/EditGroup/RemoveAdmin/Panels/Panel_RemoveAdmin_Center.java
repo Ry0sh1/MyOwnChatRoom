@@ -1,9 +1,8 @@
-package Chatroom.Gui.Group.GroupDetails.AddAdmin.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Panels;
 
 import Chatroom.Global;
 import Chatroom.Gui.Group.Frame_Group;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Frame_AddAdmin;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Frame_KickMember;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Frame_RemoveAdmin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,10 +15,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Panel_AddAdmin_Center extends JPanel {
+public class Panel_RemoveAdmin_Center extends JPanel {
 
     private final JPanel panel;
-    private final Frame_AddAdmin frame;
+    private final Frame_RemoveAdmin frame;
     private static ArrayList<String> USER = new ArrayList<>();
     private MouseAdapter clicked = new MouseAdapter() {
         @Override
@@ -46,7 +45,7 @@ public class Panel_AddAdmin_Center extends JPanel {
 
     };
 
-    public Panel_AddAdmin_Center(Frame_AddAdmin frame) {
+    public Panel_RemoveAdmin_Center(Frame_RemoveAdmin frame) {
 
         this.frame = frame;
 
@@ -93,8 +92,8 @@ public class Panel_AddAdmin_Center extends JPanel {
             out.println("quSELECT id FROM groups WHERE name = '" + Frame_Group.getGroupName() + "'");
             String groupId = in.readLine();
 
-            String state = "SELECT u.username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "'";
-            out.println("quSELECT COUNT(*) FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "'");
+            String state = "SELECT u.username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "' AND rights = 1";
+            out.println("quSELECT COUNT(*) FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "' AND rights = 1");
 
             int columnCount = Integer.parseInt(in.readLine());
 

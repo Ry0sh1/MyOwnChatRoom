@@ -4,10 +4,11 @@ import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
 import Chatroom.Gui.Group.Frame_Group;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Frame_AddAdmin;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Frame_AddMember;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Frame_AddAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddMember.Frame_AddMember;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Frame_RemoveAdmin;
 import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Frame_KickMember;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.KickMember.Frame_KickMember;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -94,6 +95,10 @@ public class Listener_GroupDetails_Action implements ActionListener {
         } else if (buttonName.equals("admin")) {
 
             new Frame_AddAdmin(frame.getX(),frame.getY());
+
+        } else if (buttonName.equals("remAdmin")) {
+
+            new Frame_RemoveAdmin(frame.getX(),frame.getY());
 
         }
 

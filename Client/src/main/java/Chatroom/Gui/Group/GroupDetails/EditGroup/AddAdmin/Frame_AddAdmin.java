@@ -1,8 +1,7 @@
-package Chatroom.Gui.Group.GroupDetails.AddAdmin;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin;
 
 import Chatroom.Global;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Panels.Panel_AddAdmin_All;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Panels.Panel_KickMember_All;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Panels.Panel_AddAdmin_All;
 
 import javax.swing.*;
 

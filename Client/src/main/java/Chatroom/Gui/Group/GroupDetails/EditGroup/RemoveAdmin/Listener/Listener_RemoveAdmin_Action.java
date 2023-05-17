@@ -1,10 +1,9 @@
-package Chatroom.Gui.Group.GroupDetails.AddMember.Listener;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Listener;
 
 import Chatroom.Global;
-import Chatroom.Gui.CreateGroup.Panels.Panel_CreateGroup_Center;
 import Chatroom.Gui.Group.Frame_Group;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Frame_AddMember;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Panels.Panel_AddMember_Center;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Frame_RemoveAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Panels.Panel_RemoveAdmin_Center;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,12 +14,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class Listener_AddMember_Action implements ActionListener {
+public class Listener_RemoveAdmin_Action implements ActionListener {
 
-    private Frame_AddMember frame;
+    private Frame_RemoveAdmin frame;
     private String buttonName;
 
-    public Listener_AddMember_Action(Frame_AddMember frame, String buttonName) {
+    public Listener_RemoveAdmin_Action(Frame_RemoveAdmin frame, String buttonName) {
         this.frame = frame;
         this.buttonName = buttonName;
     }
@@ -32,7 +31,7 @@ public class Listener_AddMember_Action implements ActionListener {
 
             frame.dispose();
 
-        } else if (buttonName.equals("add")) {
+        } else if (buttonName.equals("remAdmin")) {
 
             try {
 
@@ -43,16 +42,16 @@ public class Listener_AddMember_Action implements ActionListener {
                 out.println("quSELECT id FROM groups WHERE name = '" + Frame_Group.getGroupName() + "'");
                 String groupId = in.readLine();
 
-                for (String s:Panel_AddMember_Center.getUSER()) {
+                for (String s: Panel_RemoveAdmin_Center.getUSER()) {
 
-                    out.println("upINSERT INTO userToGroup(groupID, username, rights) VALUES (" + groupId + ", '" + s + "',0)");
-                    Global.sendMessageFromServer(s, "You got added to a new Group: " + Frame_Group.getGroupName());
+                    out.println("upUPDATE userToGroup SET rights = 0 WHERE username = '" + s + "' AND groupID = " + groupId);
+                    Global.sendMessageFromServer(s, "You aren't an Admin anymore in Group: " + Frame_Group.getGroupName());
 
                 }
 
-                JOptionPane.showMessageDialog(frame, "Member added to Group");
+                JOptionPane.showMessageDialog(frame, "Member removed Admin rights");
 
-                Panel_AddMember_Center.clearUSER();
+                Panel_RemoveAdmin_Center.clearUSER();
 
                 frame.dispose();
 

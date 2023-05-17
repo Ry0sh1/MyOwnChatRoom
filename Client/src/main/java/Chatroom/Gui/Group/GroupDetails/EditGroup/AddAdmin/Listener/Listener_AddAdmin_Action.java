@@ -1,9 +1,9 @@
-package Chatroom.Gui.Group.GroupDetails.AddAdmin.Listener;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Listener;
 
 import Chatroom.Global;
 import Chatroom.Gui.Group.Frame_Group;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Frame_AddAdmin;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Panels.Panel_AddAdmin_Center;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Frame_AddAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddAdmin.Panels.Panel_AddAdmin_Center;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

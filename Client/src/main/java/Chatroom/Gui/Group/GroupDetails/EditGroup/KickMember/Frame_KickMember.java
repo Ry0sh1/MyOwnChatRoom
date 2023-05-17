@@ -1,7 +1,7 @@
-package Chatroom.Gui.Group.GroupDetails.KickMember;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.KickMember;
 
 import Chatroom.Global;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Panels.Panel_KickMember_All;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.KickMember.Panels.Panel_KickMember_All;
 
 import javax.swing.*;
 

@@ -1,21 +1,21 @@
-package Chatroom.Gui.Group.GroupDetails.KickMember.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Panels;
 
 import Chatroom.Global;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Frame_KickMember;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Listener.Listener_KickMember_Action;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Frame_RemoveAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Listener.Listener_RemoveAdmin_Action;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Panel_KickMember_South extends JPanel {
+public class Panel_RemoveAdmin_South extends JPanel {
 
-    public Panel_KickMember_South(Frame_KickMember frame){
+    public Panel_RemoveAdmin_South(Frame_RemoveAdmin frame){
 
         JButton cancel = new JButton("Cancel");
-        JButton create = new JButton("Kick");
+        JButton create = new JButton("Remove Admin");
         cancel.setName("cancel");
-        create.setName("kick");
+        create.setName("remAdmin");
         ArrayList<JButton> buttons = new ArrayList<>();
         buttons.add(cancel);
         buttons.add(create);
@@ -27,7 +27,7 @@ public class Panel_KickMember_South extends JPanel {
             b.setForeground(Global.FOREGROUND);
             b.addMouseListener(Global.EXIT);
             b.addMouseListener(Global.ENTER);
-            b.addActionListener(new Listener_KickMember_Action(frame, b.getName()));
+            b.addActionListener(new Listener_RemoveAdmin_Action(frame, b.getName()));
             b.setPreferredSize(new Dimension(120,80));
             b.setFocusable(false);
             add(b);

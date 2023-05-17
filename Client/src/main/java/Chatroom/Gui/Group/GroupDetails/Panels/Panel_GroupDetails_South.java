@@ -4,7 +4,6 @@ import Chatroom.Global;
 import Chatroom.Gui.Group.Frame_Group;
 import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
 import Chatroom.Gui.Group.GroupDetails.Listener.Listener_GroupDetails_Action;
-import Chatroom.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,6 +46,9 @@ public class Panel_GroupDetails_South extends JPanel {
                 JButton admin = new JButton("Make Admin");
                 admin.setName("admin");
                 buttons.add(admin);
+                JButton remAdmin = new JButton("Remove Admin");
+                remAdmin.setName("remAdmin");
+                buttons.add(remAdmin);
 
             }
 

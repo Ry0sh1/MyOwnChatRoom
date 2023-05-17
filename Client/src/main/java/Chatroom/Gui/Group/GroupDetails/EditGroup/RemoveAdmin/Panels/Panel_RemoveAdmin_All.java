@@ -1,13 +1,13 @@
-package Chatroom.Gui.Group.GroupDetails.AddAdmin.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Panels;
 
 import Chatroom.Global;
-import Chatroom.Gui.Group.GroupDetails.AddAdmin.Frame_AddAdmin;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.RemoveAdmin.Frame_RemoveAdmin;
 
 import javax.swing.*;
 
-public class Panel_AddAdmin_All extends JPanel {
+public class Panel_RemoveAdmin_All extends JPanel {
 
-    public Panel_AddAdmin_All(Frame_AddAdmin frame){
+    public Panel_RemoveAdmin_All(Frame_RemoveAdmin frame){
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setAlignmentX(CENTER_ALIGNMENT);
@@ -18,8 +18,8 @@ public class Panel_AddAdmin_All extends JPanel {
         label.setBackground(Global.BACKGROUND_1);
 
         add(label);
-        add(new Panel_AddAdmin_Center(frame));
-        add(new Panel_AddAdmin_South(frame));
+        add(new Panel_RemoveAdmin_Center(frame));
+        add(new Panel_RemoveAdmin_South(frame));
 
     }
 

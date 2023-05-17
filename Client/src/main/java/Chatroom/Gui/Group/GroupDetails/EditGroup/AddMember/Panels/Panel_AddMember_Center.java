@@ -1,8 +1,8 @@
-package Chatroom.Gui.Group.GroupDetails.KickMember.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.AddMember.Panels;
 
 import Chatroom.Global;
 import Chatroom.Gui.Group.Frame_Group;
-import Chatroom.Gui.Group.GroupDetails.KickMember.Frame_KickMember;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddMember.Frame_AddMember;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +15,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Panel_KickMember_Center extends JPanel {
+public class Panel_AddMember_Center extends JPanel {
 
     private final JPanel panel;
-    private final Frame_KickMember frame;
+    private final Frame_AddMember frame;
     private static ArrayList<String> USER = new ArrayList<>();
     private MouseAdapter clicked = new MouseAdapter() {
         @Override
@@ -45,7 +45,7 @@ public class Panel_KickMember_Center extends JPanel {
 
     };
 
-    public Panel_KickMember_Center(Frame_KickMember frame) {
+    public Panel_AddMember_Center(Frame_AddMember frame) {
 
         this.frame = frame;
 
@@ -92,9 +92,11 @@ public class Panel_KickMember_Center extends JPanel {
             out.println("quSELECT id FROM groups WHERE name = '" + Frame_Group.getGroupName() + "'");
             String groupId = in.readLine();
 
-            String state = "SELECT u.username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "'";
-            out.println("quSELECT COUNT(*) FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "'");
+            String state = "SELECT username FROM user WHERE username NOT IN ("+
+                    "SELECT username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID WHERE groupID = " + groupId + ") AND username != 'Server'";
 
+            out.println("quSELECT COUNT(*) FROM user WHERE username NOT IN ("+
+            "SELECT username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID WHERE groupID = " + groupId + ") AND username != 'Server'");
             int columnCount = Integer.parseInt(in.readLine());
 
             String name = String.format("%1$-30s", "username");

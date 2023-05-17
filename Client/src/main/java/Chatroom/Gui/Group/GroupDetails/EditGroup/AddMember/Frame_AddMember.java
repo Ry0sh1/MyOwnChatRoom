@@ -1,7 +1,7 @@
-package Chatroom.Gui.Group.GroupDetails.AddMember;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.AddMember;
 
 import Chatroom.Global;
-import Chatroom.Gui.Group.GroupDetails.AddMember.Panels.Panel_AddMember_All;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.AddMember.Panels.Panel_AddMember_All;
 
 import javax.swing.*;
 
