@@ -44,6 +44,9 @@ public class Panel_GroupDetails_South extends JPanel {
                 JButton kick = new JButton("Kick Member");
                 kick.setName("kick");
                 buttons.add(kick);
+                JButton admin = new JButton("Make Admin");
+                admin.setName("admin");
+                buttons.add(admin);
 
             }
 

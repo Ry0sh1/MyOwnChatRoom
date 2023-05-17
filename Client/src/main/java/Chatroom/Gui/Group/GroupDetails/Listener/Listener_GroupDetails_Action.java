@@ -4,6 +4,7 @@ import Chatroom.Global;
 import Chatroom.Group;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
 import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.AddAdmin.Frame_AddAdmin;
 import Chatroom.Gui.Group.GroupDetails.AddMember.Frame_AddMember;
 import Chatroom.Gui.Group.GroupDetails.Frame_GroupDetails;
 import Chatroom.Gui.Group.GroupDetails.KickMember.Frame_KickMember;
@@ -89,6 +90,10 @@ public class Listener_GroupDetails_Action implements ActionListener {
         } else if (buttonName.equals("kick")) {
 
             new Frame_KickMember(frame.getX(),frame.getY());
+
+        } else if (buttonName.equals("admin")) {
+
+            new Frame_AddAdmin(frame.getX(),frame.getY());
 
         }
 
