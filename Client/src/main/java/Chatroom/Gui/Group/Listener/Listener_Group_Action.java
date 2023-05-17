@@ -66,7 +66,7 @@ public class Listener_Group_Action implements ActionListener{
                 out.println(message);
                 frame.dispose();
                 groupClient.close();
-                new Frame_Dashboard();
+                new Frame_Dashboard(frame.getX(),frame.getY());
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -81,7 +81,7 @@ public class Listener_Group_Action implements ActionListener{
                 out.println(message);
                 frame.dispose();
                 groupClient.close();
-                new Frame_GroupDetails();
+                new Frame_GroupDetails(frame.getX(),frame.getY());
 
             } catch (IOException ex) {
                 throw new RuntimeException(ex);

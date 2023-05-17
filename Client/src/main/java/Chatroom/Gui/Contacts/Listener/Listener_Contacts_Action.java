@@ -25,7 +25,7 @@ public class Listener_Contacts_Action implements ActionListener {
         if (buttonName.equals("cancel")){
 
             frame.dispose();
-            new Frame_Dashboard();
+            new Frame_Dashboard(frame.getX(), frame.getY());
 
         }
 

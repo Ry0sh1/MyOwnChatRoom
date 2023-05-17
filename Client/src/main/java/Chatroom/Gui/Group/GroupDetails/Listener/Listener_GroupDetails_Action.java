@@ -32,7 +32,7 @@ public class Listener_GroupDetails_Action implements ActionListener {
         if (buttonName.equals("cancel")){
 
             frame.dispose();
-            new Frame_Group(new Group(Frame_Group.getGroupName()));
+            new Frame_Group(new Group(Frame_Group.getGroupName()), frame.getX(),frame.getY());
 
         } else if (buttonName.equals("leave")) {
 
@@ -73,7 +73,7 @@ public class Listener_GroupDetails_Action implements ActionListener {
 
 
                 frame.dispose();
-                new Frame_Dashboard();
+                new Frame_Dashboard(frame.getX(),frame.getY());
 
             }catch (IOException i){
 
@@ -83,7 +83,7 @@ public class Listener_GroupDetails_Action implements ActionListener {
 
         } else if (buttonName.equals("add")) {
 
-            new Frame_AddMember();
+            new Frame_AddMember(frame.getX(),frame.getY());
 
         }
 

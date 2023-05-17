@@ -31,7 +31,7 @@ public class Listener_CreateGroup_Action implements ActionListener {
 
         if (buttonName.equals("cancel")){
 
-            new Frame_Dashboard();
+            new Frame_Dashboard(frame.getX(),frame.getY());
             frame.dispose();
 
         } else if (buttonName.equals("create")) {
@@ -75,7 +75,7 @@ public class Listener_CreateGroup_Action implements ActionListener {
                     Panel_CreateGroup_All.clearIN();
                     Panel_CreateGroup_Center.clearUSER();
                     frame.dispose();
-                    new Frame_Dashboard();
+                    new Frame_Dashboard(frame.getX(),frame.getY());
 
                 }
 

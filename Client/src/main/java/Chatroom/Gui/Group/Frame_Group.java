@@ -20,7 +20,7 @@ public class Frame_Group extends JFrame implements Runnable{
     private final Group group;
     public static String GROUP_NAME;
 
-    public Frame_Group(Group group){
+    public Frame_Group(Group group, int x, int y){
 
         super(group.getName());
         this.group = group;
@@ -37,6 +37,7 @@ public class Frame_Group extends JFrame implements Runnable{
         all = new Panel_Group_All(groupClient, group, this);
         add(all);
 
+        setLocation(x,y);
         setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);
