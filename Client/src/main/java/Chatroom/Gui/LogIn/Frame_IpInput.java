@@ -27,7 +27,7 @@ public class Frame_IpInput extends JFrame implements ActionListener {
     private final Color background = new Color(40,40,40);
     private final Color background2 = new Color(60, 60, 60);
     private final JTextField userIn = new JTextField();
-    private final JTextField passwordIn = new JTextField();
+    private final JPasswordField passwordIn = new JPasswordField();
 
     public Frame_IpInput(){
         start();

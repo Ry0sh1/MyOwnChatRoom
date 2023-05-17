@@ -31,6 +31,9 @@ public class Panel_EditGroup_South extends JPanel {
         JButton remAdmin = new JButton("Remove Admin");
         remAdmin.setName("remAdmin");
         buttons.add(remAdmin);
+        JButton apply = new JButton("Apply");
+        apply.setName("apply");
+        buttons.add(apply);
 
         for (JButton b:buttons) {
             Global.buttonFactory(b);

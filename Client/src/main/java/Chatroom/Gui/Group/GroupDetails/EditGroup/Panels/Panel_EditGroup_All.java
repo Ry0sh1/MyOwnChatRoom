@@ -3,6 +3,7 @@ package Chatroom.Gui.Group.GroupDetails.EditGroup.Panels;
 import Chatroom.Global;
 import Chatroom.Gui.Group.Frame_Group;
 import Chatroom.Gui.Group.GroupDetails.EditGroup.Frame_EditGroup;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.Panels.North.Panel_EditGroup_North;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,8 @@ public class Panel_EditGroup_All extends JPanel {
         setAlignmentX(CENTER_ALIGNMENT);
         setBackground(Global.BACKGROUND_1);
 
+        add(new Panel_EditGroup_North());
+        add(new Panel_EditGroup_Center());
         add(new Panel_EditGroup_South(frame));
 
     }
