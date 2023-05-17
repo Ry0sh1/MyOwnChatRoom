@@ -1,8 +1,8 @@
-package Chatroom.Gui.CreateGroup.Panels;
+package Chatroom.Gui.Group.GroupDetails.EditGroup.Options.RemoveAdmin.Panels;
 
 import Chatroom.Global;
-import Chatroom.Gui.CreateGroup.Frame_CreateGroup;
-import Chatroom.Gui.CreateGroup.Listener.Listener_CreateGroup_Action;
+import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.EditGroup.Options.RemoveAdmin.Frame_RemoveAdmin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +12,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 
-public class Panel_CreateGroup_Center extends JPanel {
+public class Panel_RemoveAdmin_Center extends JPanel {
 
     private final JPanel panel;
-    private final Frame_CreateGroup frame;
+    private final Frame_RemoveAdmin frame;
     private static ArrayList<String> USER = new ArrayList<>();
     private MouseAdapter clicked = new MouseAdapter() {
         @Override
@@ -38,14 +39,13 @@ public class Panel_CreateGroup_Center extends JPanel {
                 b.removeMouseListener(Global.ENTER);
                 b.removeMouseListener(Global.EXIT);
 
-
             }
 
         }
 
     };
 
-    public Panel_CreateGroup_Center(Frame_CreateGroup frame) {
+    public Panel_RemoveAdmin_Center(Frame_RemoveAdmin frame) {
 
         this.frame = frame;
 
@@ -68,7 +68,6 @@ public class Panel_CreateGroup_Center extends JPanel {
         JButton button = new JButton(chatname);
         button.setName(chatname);
         button.setPreferredSize(new Dimension(200,40));
-        button.addActionListener(new Listener_CreateGroup_Action(frame, button.getName()));
         button.setFocusable(false);
         button.setBackground(Global.BACKGROUND_1);
         button.addMouseListener(Global.EXIT);
@@ -84,15 +83,18 @@ public class Panel_CreateGroup_Center extends JPanel {
 
     public void displayChats(){
 
-        String state = "SELECT username FROM user";
-
         try {
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(Global.SQL_CLIENT.getInputStream()));
-            PrintWriter out = new PrintWriter(Global.SQL_CLIENT.getOutputStream(), true);
+            Socket sqlClient = Global.SQL_CLIENT;
+            BufferedReader in = new BufferedReader(new InputStreamReader(sqlClient.getInputStream()));
+            PrintWriter out = new PrintWriter(sqlClient.getOutputStream(), true);
 
-            String query = "SELECT COUNT(username) FROM user";
-            out.println("qu" + query);
+            out.println("quSELECT id FROM groups WHERE name = '" + Frame_Group.getGroupName() + "'");
+            String groupId = in.readLine();
+
+            String state = "SELECT u.username FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "' AND rights = 1";
+            out.println("quSELECT COUNT(*) FROM userToGroup INNER JOIN groups g on g.id = userToGroup.groupID INNER JOIN user u on u.username = userToGroup.username WHERE name = '" + Frame_Group.getGroupName() + "' AND rights = 1");
+
             int columnCount = Integer.parseInt(in.readLine());
 
             String name = String.format("%1$-30s", "username");
@@ -100,12 +102,8 @@ public class Panel_CreateGroup_Center extends JPanel {
 
             for (int i = 0; i<columnCount;i++) {
 
-                String user = in.readLine();
-                if (!user.equals(Global.USER.getUsername())){
-
-                    addChat(user);
-
-                }
+                String dw = in.readLine();
+                addChat(dw);
 
             }
 

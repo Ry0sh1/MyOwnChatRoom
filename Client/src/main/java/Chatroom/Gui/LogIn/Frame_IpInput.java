@@ -22,14 +22,22 @@ import java.sql.SQLException;
 
 public class Frame_IpInput extends JFrame implements ActionListener {
 
-    private final JTextField ip;
-    private Color foreground = Color.white;
-    private Color background = new Color(40,40,40);
-    private Color background2 = new Color(60, 60, 60);
-    private JTextField userIn = new JTextField();
-    private JTextField passwordIn = new JTextField();
+    private JTextField ip;
+    private final Color foreground = Color.white;
+    private final Color background = new Color(40,40,40);
+    private final Color background2 = new Color(60, 60, 60);
+    private final JTextField userIn = new JTextField();
+    private final JTextField passwordIn = new JTextField();
 
     public Frame_IpInput(){
+        start();
+    }
+    public Frame_IpInput(int x, int y){
+        setLocation(x, y);
+        start();
+    }
+
+    private void start(){
 
         //Declarations
         ip = new JTextField();
@@ -201,7 +209,7 @@ public class Frame_IpInput extends JFrame implements ActionListener {
 
                     this.dispose();
                     new Global(ip.getText(), sqlClient, distributor, user, background, background2, foreground);
-                    new Frame_Dashboard();
+                    new Frame_Dashboard(getX(), getY());
 
                 } else {
 

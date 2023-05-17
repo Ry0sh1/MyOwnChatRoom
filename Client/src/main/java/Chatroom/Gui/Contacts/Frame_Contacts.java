@@ -8,12 +8,13 @@ import java.awt.*;
 
 public class Frame_Contacts extends JFrame {
 
-    public Frame_Contacts(){
+    public Frame_Contacts(int x, int y){
 
         Panel_Contacts_All all = new Panel_Contacts_All(this);
 
         add(all);
 
+        setLocation(x,y);
         setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);

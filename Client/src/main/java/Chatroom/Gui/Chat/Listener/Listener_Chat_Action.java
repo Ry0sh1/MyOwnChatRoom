@@ -61,7 +61,7 @@ public class Listener_Chat_Action implements ActionListener {
             Global.setActualChatNickname(null);
             Global.setActualChat(null);
             frame.dispose();
-            new Frame_Dashboard();
+            new Frame_Dashboard(frame.getX(),frame.getY());
 
         }
 

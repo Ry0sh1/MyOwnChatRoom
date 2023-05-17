@@ -25,12 +25,12 @@ public class Listener_PrivateChats_Action implements ActionListener {
         if (buttonName.equals("cancel")){
 
             frame.dispose();
-            new Frame_Dashboard();
+            new Frame_Dashboard(frame.getX(),frame.getY());
 
         }else {
 
             User with = new User(buttonName);
-            new Frame_Chat(with);
+            new Frame_Chat(with, frame.getX(),frame.getY());
             frame.dispose();
 
         }

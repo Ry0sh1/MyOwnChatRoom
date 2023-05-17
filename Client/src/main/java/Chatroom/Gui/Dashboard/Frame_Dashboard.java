@@ -8,11 +8,12 @@ import javax.swing.*;
 public class Frame_Dashboard extends JFrame{
 
     public Panel_All panelAll;
-    public Frame_Dashboard(){
+    public Frame_Dashboard(int x, int y){
 
         panelAll = new Panel_All(this);
         add(panelAll);
 
+        setLocation(x,y);
         setJMenuBar(Global.MENUBAR);
         setBackground(Global.BACKGROUND_1);
         setForeground(Global.FOREGROUND);

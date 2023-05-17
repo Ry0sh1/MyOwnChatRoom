@@ -31,15 +31,15 @@ public class Listener_Action implements ActionListener {
             }
             case "Create Group" -> {
                 frame.dispose();
-                new Frame_CreateGroup();
+                new Frame_CreateGroup(frame.getX(),frame.getY());
             }
             case "Contacts" -> {
                 frame.dispose();
-                new Frame_Contacts();
+                new Frame_Contacts(frame.getX(),frame.getY());
             }
             case "Chats" -> {
                 frame.dispose();
-                new Frame_PrivateChats();
+                new Frame_PrivateChats(frame.getX(),frame.getY());
             }
 
         }

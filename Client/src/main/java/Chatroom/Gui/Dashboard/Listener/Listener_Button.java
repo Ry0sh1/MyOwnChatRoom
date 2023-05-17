@@ -24,7 +24,7 @@ public class Listener_Button implements ActionListener {
 
         dashboard.dispose();
         Group selectedGroup = new Group(groupName);
-        Frame_Group group = new Frame_Group(selectedGroup);
+        Frame_Group group = new Frame_Group(selectedGroup,dashboard.getX(),dashboard.getY());
 
     }
 

@@ -33,6 +33,7 @@ public class Panel_GroupDetails_Center extends JPanel {
 
             }
 
+            setBackground(Global.BACKGROUND_1);
             JTable contacts = new JTable(data, col);
             contacts.setBackground(Global.BACKGROUND_1);
             contacts.setGridColor(Global.BACKGROUND_2);
@@ -40,13 +41,16 @@ public class Panel_GroupDetails_Center extends JPanel {
             contacts.getTableHeader().setBackground(Global.BACKGROUND_2);
             contacts.getTableHeader().setForeground(Global.FOREGROUND);
             contacts.setBorder(BorderFactory.createEmptyBorder());
-            contacts.setPreferredSize(new Dimension(400,400));
             contact_pane = new JScrollPane(contacts);
             contact_pane.setBorder(BorderFactory.createEmptyBorder());
             contact_pane.getVerticalScrollBar().setUI(Global.BUTTON_SCROLLBAR_UI);
+            contact_pane.setBackground(Global.BACKGROUND_1);
+            contact_pane.setPreferredSize(new Dimension(350,100));
 
+            setPreferredSize(new Dimension(350,120));
             setBackground(Global.BACKGROUND_1);
             setForeground(Global.FOREGROUND);
+            setBorder(BorderFactory.createEmptyBorder(0,0,20,0));
             add(contact_pane);
 
         }catch (IOException e) {
