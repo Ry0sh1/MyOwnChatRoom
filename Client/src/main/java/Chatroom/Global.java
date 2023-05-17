@@ -1,5 +1,7 @@
 package Chatroom;
 
+import Chatroom.Gui.Group.Frame_Group;
+import Chatroom.Gui.Group.GroupDetails.Listener.Listener_GroupDetails_Action;
 import Chatroom.SQL.LiteSQL;
 
 import javax.swing.*;
@@ -200,6 +202,39 @@ public class Global implements ActionListener {
 
     public static String formatStringForPrivateMessages(String st){
         return String.format("%1$-30s",st);
+    }
+
+    public static void buttonFactory(JButton b){
+        b.setBackground(Global.BACKGROUND_1);
+        b.setForeground(Global.FOREGROUND);
+        b.addMouseListener(Global.ENTER);
+        b.addMouseListener(Global.EXIT);
+        b.setFocusable(false);
+        b.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
+        b.setPreferredSize(new Dimension(120,60));
+    }
+
+    public static void frameFactory(JFrame f){
+        f.setJMenuBar(Global.MENUBAR);
+        f.setBackground(Global.BACKGROUND_1);
+        f.pack();
+        f.setVisible(true);
+    }
+
+    public static void textAreaFactory(JTextArea t){
+        t.setBackground(BACKGROUND_2);
+        t.setForeground(FOREGROUND);
+        t.setBorder(BorderFactory.createLineBorder(LINE,2));
+        t.setLineWrap(true);
+        t.setWrapStyleWord(true);
+    }
+
+    public static void scrollPaneFactory(JScrollPane s){
+        s.setBackground(BACKGROUND_1);
+        s.setForeground(FOREGROUND);
+        s.getVerticalScrollBar().setUI(TEXTAREA_SCROLLBAR_UI);
+        s.getHorizontalScrollBar().setUI(TEXTAREA_SCROLLBAR_UI);
+        s.setBorder(BorderFactory.createEmptyBorder());
     }
 
 }

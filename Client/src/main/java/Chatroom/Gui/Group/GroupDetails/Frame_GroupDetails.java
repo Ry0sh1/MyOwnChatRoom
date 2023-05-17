@@ -11,13 +11,10 @@ public class Frame_GroupDetails extends JFrame {
     public Frame_GroupDetails(int x, int y){
 
         add(new Panel_GroupDetails_All(this));
-
-        setLocation(x,y);
-        setJMenuBar(Global.MENUBAR);
-        setBackground(Global.BACKGROUND_1);
+        Global.frameFactory(this);
         setTitle(Frame_Group.getGroupName());
-        pack();
-        setVisible(true);
+        setLocation(x,y);
+        setBackground(Global.BACKGROUND_1);
 
     }
 

@@ -25,6 +25,7 @@ public class Panel_GroupDetails_South extends JPanel {
         leave.setName("leave");
         buttons.add(leave);
         buttons.add(cancel);
+        setBackground(Global.BACKGROUND_1);
 
         try {
 
@@ -37,18 +38,9 @@ public class Panel_GroupDetails_South extends JPanel {
 
             if (Integer.parseInt(in.readLine())==1) {
 
-                JButton add = new JButton("Add Member");
-                add.setName("add");
-                buttons.add(add);
-                JButton kick = new JButton("Kick Member");
-                kick.setName("kick");
-                buttons.add(kick);
-                JButton admin = new JButton("Make Admin");
-                admin.setName("admin");
-                buttons.add(admin);
-                JButton remAdmin = new JButton("Remove Admin");
-                remAdmin.setName("remAdmin");
-                buttons.add(remAdmin);
+                JButton edit = new JButton("Edit Group");
+                edit.setName("edit");
+                buttons.add(edit);
 
             }
 
@@ -57,17 +49,9 @@ public class Panel_GroupDetails_South extends JPanel {
         }
 
         for (JButton b:buttons) {
-
-            b.setBackground(Global.BACKGROUND_1);
-            b.setForeground(Global.FOREGROUND);
-            b.addMouseListener(Global.ENTER);
-            b.addMouseListener(Global.EXIT);
-            b.setFocusable(false);
-            b.setBorder(BorderFactory.createLineBorder(Global.LINE, 2));
+            Global.buttonFactory(b);
             b.addActionListener(new Listener_GroupDetails_Action(frame, b.getName()));
-            b.setPreferredSize(new Dimension(120,60));
             add(b);
-
         }
 
         setLayout(new FlowLayout());
