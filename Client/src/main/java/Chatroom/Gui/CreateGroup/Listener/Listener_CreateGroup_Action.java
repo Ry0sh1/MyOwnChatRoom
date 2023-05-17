@@ -66,8 +66,7 @@ public class Listener_CreateGroup_Action implements ActionListener {
                     for (String s:member) {
 
                         out.println("upINSERT INTO userToGroup(groupID, username, rights) VALUES (" + groupId + ",'" + s + "',0)");
-                        String to = String.format("%1$-30s",s);
-                        outDis.println("pr" + from + to + "You got added to a new Group: " + groupName);
+                        Global.sendMessageFromServer(s,"You got added to a new Group: " + groupName);
 
                     }
 

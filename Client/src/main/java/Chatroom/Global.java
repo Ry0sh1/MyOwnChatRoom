@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Arrays;
 
@@ -30,6 +32,7 @@ public class Global implements ActionListener {
     public static ScrollBarUI BUTTON_SCROLLBAR_UI;
     public static ScrollBarUI TEXTAREA_SCROLLBAR_UI;
     public static JMenuBar MENUBAR;
+    private static PrintWriter DIS_OUT;
     private JMenuItem[] colors = new JMenuItem[6];
 
     public Global(String serverIp, Socket sqlClient, Socket disClient, User user, Color background, Color background2, Color foreground){
@@ -42,6 +45,12 @@ public class Global implements ActionListener {
         BACKGROUND_2 = background2;
         FOREGROUND = foreground;
         System.out.println("Global constants initialized");
+
+        try {
+            DIS_OUT = new PrintWriter(DIS_CLIENT.getOutputStream(),true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         ENTER = new MouseAdapter() {
             @Override
@@ -184,6 +193,13 @@ public class Global implements ActionListener {
 
         }
 
+    }
+    public static void sendMessageFromServer(String recipient, String message){
+        DIS_OUT.println("pr" + formatStringForPrivateMessages("Server") + formatStringForPrivateMessages(recipient) + message);
+    }
+
+    public static String formatStringForPrivateMessages(String st){
+        return String.format("%1$-30s",st);
     }
 
 }
