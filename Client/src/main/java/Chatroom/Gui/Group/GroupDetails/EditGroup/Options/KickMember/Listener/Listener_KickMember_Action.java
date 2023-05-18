@@ -51,6 +51,14 @@ public class Listener_KickMember_Action implements ActionListener {
 
                 JOptionPane.showMessageDialog(frame, "Member kicked out of Group");
 
+                out.println("quSELECT COUNT(*) FROM userToGroup WHERE groupID = " + groupId);
+
+                if (Integer.parseInt(in.readLine())<=0){
+
+                    out.println("upDELETE FROM groups WHERE id = " + groupId);
+
+                }
+
                 Panel_KickMember_Center.clearUSER();
 
                 frame.dispose();

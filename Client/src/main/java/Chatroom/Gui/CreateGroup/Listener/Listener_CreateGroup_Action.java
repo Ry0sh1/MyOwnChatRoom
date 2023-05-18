@@ -5,6 +5,7 @@ import Chatroom.Gui.CreateGroup.Frame_CreateGroup;
 import Chatroom.Gui.CreateGroup.Panels.Panel_CreateGroup_All;
 import Chatroom.Gui.CreateGroup.Panels.Panel_CreateGroup_Center;
 import Chatroom.Gui.Dashboard.Frame_Dashboard;
+import Chatroom.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Listener_CreateGroup_Action implements ActionListener {
 
@@ -55,7 +59,10 @@ public class Listener_CreateGroup_Action implements ActionListener {
 
                 }else {
 
-                    out.println("upINSERT INTO groups(name) VALUES ('" + groupName + "')");
+                    GregorianCalendar calendar = new GregorianCalendar();
+                    long time = calendar.getTime().getTime();
+
+                    out.println("upINSERT INTO groups(name, created, creator) VALUES ('" + groupName + "','"+ time +"','"+ Global.USER.getUsername()+"')");
                     out.println("quSELECT id FROM groups WHERE name = '" + groupName + "'");
                     String groupId = in.readLine();
 
